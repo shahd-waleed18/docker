@@ -1,11 +1,10 @@
-FROM python:3.9-slim
+FROM python:3.12
 
 WORKDIR /app
 
-COPY cloudassigment.ipynb .
-COPY paragraphs.txt .
-
+COPY main.py  /app
+COPY paragraphs.txt /app
 RUN pip install nltk
 RUN python -m nltk.downloader punkt stopwords
 
-CMD ["python", "cloudassigment.ipynb"]
+CMD ["python", "main.py"]
